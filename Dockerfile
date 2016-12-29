@@ -9,7 +9,7 @@ ENV PYDIO_VERSION 7.0.3
 # ------------------------------------------------------------------------------
 # Install Base
 RUN apt-get update
-RUN apt-get install -yq wget unzip nginx fontconfig-config fonts-dejavu-core \
+RUN apt-get install -yq curl wget unzip nginx fontconfig-config fonts-dejavu-core \
     php5-fpm php5-common php5-json php5-cli php5-common php5-mysql\
     php5-gd php5-json php5-mcrypt php5-readline psmisc ssl-cert \
     ufw php-pear libgd-tools libmcrypt-dev mcrypt mysql-server mysql-client
@@ -55,7 +55,7 @@ RUN update-rc.d mysql defaults
 # Install Pydio
 WORKDIR /var/www
 # RUN wget http://downloads.sourceforge.net/project/ajaxplorer/pydio/stable-channel/${PYDIO_VERSION}/pydio-core-${PYDIO_VERSION}.zip
-RUN curl -sL https://github.com/pydio/pydio-core/archive/pydio-core-7.0.3.tar.gz | tar xz
+RUN curl -sL https://github.com/pydio/pydio-core/archive/pydio-core-${PYDIO_VERSION}.tar.gz | tar xz
 # RUN unzip pydio-core-${PYDIO_VERSION}.zip
 RUN mv pydio-core-pydio-core-${PYDIO_VERSION} pydio-core
 RUN chown -R www-data:www-data /var/www/pydio-core
