@@ -43,7 +43,7 @@ RUN sed -i -e"s/keepalive_timeout 2/keepalive_timeout 2;\n\tclient_max_body_size
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 ADD conf/pydio /etc/nginx/sites-enabled/
 RUN mkdir /etc/nginx/ssl
-RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt -subj '/CN=localhost/O=My Company Name LTD./C=US'
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt -subj '/CN=192.168.90.10/O=My Company Name LTD./C=US'
 
 # ------------------------------------------------------------------------------
 # Configure services
