@@ -57,7 +57,7 @@ WORKDIR /var/www
 # RUN wget http://downloads.sourceforge.net/project/ajaxplorer/pydio/stable-channel/${PYDIO_VERSION}/pydio-core-${PYDIO_VERSION}.zip
 RUN curl -sL https://github.com/pydio/pydio-core/archive/pydio-core-${PYDIO_VERSION}.tar.gz | tar xz
 # RUN unzip pydio-core-${PYDIO_VERSION}.zip
-RUN mv pydio-core-pydio-core-${PYDIO_VERSION} pydio-core && mkdir -p pydio-core/files pydio-core/personal
+RUN mv pydio-core-pydio-core-${PYDIO_VERSION} pydio-core && mkdir -p pydio-core/data/files pydio-core/data/personal
 RUN chown -R www-data:www-data /var/www/pydio-core
 RUN chmod -R 770 /var/www/pydio-core
 RUN chmod 777  /var/www/pydio-core/data/files/
