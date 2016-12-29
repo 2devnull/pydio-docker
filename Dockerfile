@@ -4,7 +4,7 @@
 # Pull base image.
 FROM kdelfour/supervisor-docker
 MAINTAINER Kevin Delfour <kevin@delfour.eu>
-ENV PYDIO_VERSION 6.4.1
+ENV PYDIO_VERSION 7.0.3
 
 # ------------------------------------------------------------------------------
 # Install Base
@@ -54,9 +54,10 @@ RUN update-rc.d mysql defaults
 # ------------------------------------------------------------------------------
 # Install Pydio
 WORKDIR /var/www
-RUN wget http://downloads.sourceforge.net/project/ajaxplorer/pydio/stable-channel/${PYDIO_VERSION}/pydio-core-${PYDIO_VERSION}.zip
-RUN unzip pydio-core-${PYDIO_VERSION}.zip
-RUN mv pydio-core-${PYDIO_VERSION} pydio-core
+# RUN wget http://downloads.sourceforge.net/project/ajaxplorer/pydio/stable-channel/${PYDIO_VERSION}/pydio-core-${PYDIO_VERSION}.zip
+RUN curl -sL https://github.com/pydio/pydio-core/archive/pydio-core-7.0.3.tar.gz | tar xz
+# RUN unzip pydio-core-${PYDIO_VERSION}.zip
+RUN mv pydio-core-pydio-core-${PYDIO_VERSION} pydio-core
 RUN chown -R www-data:www-data /var/www/pydio-core
 RUN chmod -R 770 /var/www/pydio-core
 RUN chmod 777  /var/www/pydio-core/data/files/
